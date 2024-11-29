@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffie-HellMan</title>
+</head>
+
+<body>
+    <script>
+        function power(a, b, p) {
+            if (b == 1) {
+                return a;
+            }
+            else {
+                return ((Math.pow(a, b)) % p);
+            }
+        }
+        var P, G, a, b, x, y, ka, kb;
+        P = parseInt(prompt("Enter Prime number P:"));
+        document.write("The value of P is" + P + "<br>")
+        G = parseInt(prompt("Enter primitive root G:"));
+        document.write("The value of G is" + G + "<br>")
+        a = parseInt(prompt("Enter Private key of A"));
+        document.write("The private key of a is:" + a + "<br>");
+        x = power(G, a, P);
+        b = parseInt(prompt("Enter Private key of B"));
+        document.write("The private key of b is:" + b + "<br>");
+        y = power(G, b, P);
+        ka = power(y, a, P);
+        kb = power(x, b, P);
+        document.write("The Secret Key of a:" + ka + "<br>");
+        document.write("The Secret Key of b:" + kb + "<br>");
+    </script>
+</body>
+
+</html>
